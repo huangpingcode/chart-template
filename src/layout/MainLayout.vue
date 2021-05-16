@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="ly-section">
         <router-view/>
     </div>
 </template>
@@ -7,3 +7,8 @@
 export default {
 }
 </script>
+<style lang="scss" scoped>
+.ly-section{
+    padding: 20px;
+}
+</style>

@@ -1,3 +1,12 @@
+const toString = Object.prototype.toString
+/**
+ *
+ * @param {any} val
+ * @returns val的原始类型
+ */
+export const getType = (val) => {
+    return toString.call(val)
+}
 
 /**
  *
