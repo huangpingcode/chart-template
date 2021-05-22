@@ -6,13 +6,15 @@
 import * as echarts from 'echarts/core'
 // 引入柱状图图表，图表后缀都为 Chart
 import {
-    LineChart
+    LineChart,
+    BarChart
 } from 'echarts/charts'
 // 引入提示框，标题，直角坐标系组件，组件后缀都为 Component
 import {
     TitleComponent,
     TooltipComponent,
-    GridComponent
+    GridComponent,
+    LegendComponent
 } from 'echarts/components'
 // 引入 Canvas 渲染器，注意引入 CanvasRenderer 或者 SVGRenderer 是必须的一步
 import {
@@ -20,17 +22,20 @@ import {
 } from 'echarts/renderers'
 
 import { mergeOptions } from './utils'
-import themData from './config/them.json'
+import theme from './config/theme'
 
 // 注册必须的组件
 echarts.use(
-    [TitleComponent, TooltipComponent, GridComponent, LineChart, CanvasRenderer]
+    [TitleComponent, TooltipComponent, GridComponent, CanvasRenderer, LegendComponent, LineChart, BarChart]
 )
 
 export default {
     data () {
         return {
             chartOption: {
+                tooltip: {
+                    trigger: 'axis'
+                },
                 xAxis: {
                     type: 'category',
                     data: []
@@ -60,8 +65,9 @@ export default {
     },
     methods: {
         init () {
+            console.log('theme', theme)
+            echarts.registerTheme('customed', theme)
             this.echartInstance = echarts.init(this.$el, 'customed')
-            echarts.registerTheme('vintage', themData)
             this.setChartOption()
         },
         setChartOption () {

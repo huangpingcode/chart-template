@@ -23,7 +23,13 @@ export default {
                 series: [
                     {
                         type: 'line',
-                        data: Array.from({ length: 7 }).map(() => Math.random() * 100)
+                        name: '数据项一',
+                        data: Array.from({ length: 7 }).map(() => (Math.random() * 100).toFixed(2))
+                    },
+                    {
+                        type: 'bar',
+                        name: '数据项二',
+                        data: Array.from({ length: 7 }).map(() => (Math.random() * 100).toFixed(2))
                     }
                 ]
             }
@@ -41,9 +47,10 @@ export default {
 </script>
 <style lang="scss" scoped>
 .chart-demo{
-    width: 400px;
-    height: 200px;
-    padding: 18px;
+    width: 600px;
+    height: 400px;
+    // padding: 18px;
     border: 1px solid #ddd;
+    // background: linear-gradient(180deg, #2274DC 0%, #191D6A 100%);
 }
 </style>
