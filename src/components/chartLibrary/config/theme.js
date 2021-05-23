@@ -1,8 +1,19 @@
+
+const gridPadding = 18
 export default {
     color: ['#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de', '#73c0de', '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc'],
     // backgroundColor: 'rgba(0,0,0,0)',
-    textStyle: {
-        align: 'left'
+    // textStyle: {
+    //     align: 'left',
+    //     color: '#ffaacc',
+    //     lineHeight: 60
+    // },
+    grid: {
+        left: gridPadding,
+        right: gridPadding,
+        top: gridPadding + 20,
+        bottom: gridPadding,
+        containLabel: true
     },
     title: {
         textStyle: {
@@ -13,8 +24,11 @@ export default {
         }
     },
     legend: {
+        top: 0,
         textStyle: {
-            color: '#333333'
+            color: '#333333',
+
+            lineHeight: 160
         }
     },
     tooltip: {
@@ -32,32 +46,32 @@ export default {
         }
         // alwaysShowContent: true  // 总是显示坐标
     },
-    categoryAxis: {
-        axisLine: {
+    categoryAxis: { // 类目坐标轴默认样式，一般为x轴
+        axisLine: { // 坐标轴线样式
             show: true,
             lineStyle: {
                 color: '#6E7079'
             }
         },
-        axisTick: {
-            show: false,
-            lineStyle: {
-                color: '#6E7079'
-            }
+        axisTick: { // 刻度
+            show: false
+            // lineStyle: {
+            //     color: '#ffaacc'
+            // }
         },
-        axisLabel: {
+        axisLabel: { // 刻度标签
             show: true,
             textStyle: {
                 color: '#6e7079'
             }
         },
-        splitLine: {
-            show: false,
-            lineStyle: {
-                color: [
-                    '#E0E6F1'
-                ]
-            }
+        splitLine: { // 分割线
+            show: false // 默认数值轴显示，类目轴不显示
+            // lineStyle: {
+            //     color: [
+            //         '#E0E6F1'
+            //     ]
+            // }
         },
         splitArea: {
             show: false,
@@ -69,18 +83,18 @@ export default {
             }
         }
     },
-    valueAxis: {
+    valueAxis: { // 类目坐标轴默认样式，一般为y轴
         axisLine: {
-            show: true,
-            lineStyle: {
-                color: '#6e7079'
-            }
-        },
-        axisTick: {
             show: false,
             lineStyle: {
                 color: '#6E7079'
             }
+        },
+        axisTick: {
+            show: false
+            // lineStyle: {
+            //     color: '#6E7079'
+            // }
         },
         axisLabel: {
             show: true,

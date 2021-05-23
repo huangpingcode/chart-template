@@ -33,6 +33,12 @@ export default {
     data () {
         return {
             chartOption: {
+                grid: {
+                    // containLabel: false
+                },
+                legend: {
+                    left: theme.grid.left
+                },
                 tooltip: {
                     trigger: 'axis'
                 },
@@ -65,13 +71,13 @@ export default {
     },
     methods: {
         init () {
-            console.log('theme', theme)
             echarts.registerTheme('customed', theme)
             this.echartInstance = echarts.init(this.$el, 'customed')
             this.setChartOption()
         },
         setChartOption () {
             this.echartInstance.setOption(this.chartOption)
+            console.log('this.chartOption', this.chartOption)
         },
         mergeOptions () {
             const extOpt = this.extendOpt
